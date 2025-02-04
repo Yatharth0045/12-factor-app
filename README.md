@@ -37,3 +37,14 @@ Can be achieved via Scaling
 Service should be stateless and should share nothing 
 
 Eg: Storing visitor count
+
+### Backing services
+Run Redis
+```bash
+docker run -d --name redis -p 6379:6379 redis/redis-stack-server:latest
+```
+
+Run application with connection to redis
+```bash
+docker run -p 8080:8080 --link redis my-app
+```
