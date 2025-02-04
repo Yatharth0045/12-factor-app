@@ -1,8 +1,12 @@
+from dotenv import load_dotenv
 from flask import Flask
 from redis import Redis
+import os
+
+load_dotenv()
 
 app = Flask(__name__)
-redisDb = Redis(host='redis', port=6379)
+redisDb = Redis(host=os.environ['REDIS_HOST'], port=os.environ['REDIS_PORT'])
 
 visitCount = 0
 
@@ -13,4 +17,4 @@ def mainapp():
     return 'Hello, World! This page has been visited {} times'.format(visitCount)  
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True, port=8080)
+    app.run(host=os.environ['APP_HOST'], debug=True, port=os.environ['APP_PORT'])

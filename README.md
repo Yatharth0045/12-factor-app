@@ -48,3 +48,26 @@ Run application with connection to redis
 ```bash
 docker run -p 8080:8080 --link redis my-app
 ```
+
+### Config
+Hard coded configs should be avoided. Pass them via ENV
+```bash
+## Run app via docker
+## modify .env
+docker run -p 8080:8080 --env-file .env --link redis my-app
+
+## Run app locally
+## modify .env
+python app.py
+```
+
+### Build Release Run
+
+- Build
+    - Adding code
+    - Containerize
+- Release
+    - Image
+    - .env
+- Run
+    - Run Image specific to env
