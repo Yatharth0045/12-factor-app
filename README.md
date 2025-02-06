@@ -170,10 +170,10 @@ docker run --rm -p 8081:8081 --log-driver=fluentd --log-opt fluentd-address=loca
 
 ## Services access points
 
-Microservice : [localhost:8080](http://localhost:8080)
-Redis: [localhost:6379](http://localhost:6379)
-Elasticsearch: [localhost:9200](http://localhost:9200)
-Kibana: [localhost:5601](http://localhost:5601)
-Fluentd: [localhost:24224](http://localhost:24224)
-Admin App: [localhost:8081](http://localhost:8081)
+- Microservice : [localhost:8080](http://localhost:8080)
+- Redis: [localhost:6379](http://localhost:6379)
+- Elasticsearch: [localhost:9200](http://localhost:9200)
+- Kibana: [localhost:5601](http://localhost:5601)
+- Fluentd: [localhost:24224](http://localhost:24224)
+- Admin App: [localhost:8081](http://localhost:8081)
 
