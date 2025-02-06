@@ -1,5 +1,7 @@
 ## Microservice using 12 factor
 
+12 factor methodology is not only just a practice, but a mindset
+
 ### Codebase
 Using git to store and collaborate
 Each microservice should use separate codebase
@@ -152,5 +154,26 @@ docker run -d --name fluentd \
   fluentd
 
 ## Run app container
-docker run -p 8080:8080 --log-driver=fluentd --log-opt fluentd-address=localhost:24224 --name microservice --env-file .env --link redis my-app
+docker run --rm -p 8080:8080 --log-driver=fluentd --log-opt fluentd-address=localhost:24224 --name microservice --env-file .env --link redis my-app
+```
+
+## Admin Processes
+
+```bash
+## Build admin app
+cd admin
+docker build -t admin-app .
+
+## Run the app
+docker run --rm -p 8081:8081 --log-driver=fluentd --log-opt fluentd-address=localhost:24224 --name admin --env-file .env --link redis admin-app
+```
+
+## Services access points
+```md
+Microservice : [localhost:8080](http://localhost:8080)
+Redis: [localhost:6379](http://localhost:6379)
+Elasticsearch: [localhost:9200](http://localhost:9200)
+Kibana: [localhost:5601](http://localhost:5601)
+Fluentd: [localhost:24224](http://localhost:24224)
+Admin App: [localhost:8081](http://localhost:8081)
 ```
